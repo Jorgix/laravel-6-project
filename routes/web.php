@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ProductController;
 
 //Route::middleware([])->group(function (){
 //
@@ -21,6 +22,12 @@ use App\Http\Controllers\EventController;
 //
 //    });
 //});
+
+Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
 
 Route::group([
     'middleware' => ['auth'],
