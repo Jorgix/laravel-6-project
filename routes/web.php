@@ -23,10 +23,16 @@ use App\Http\Controllers\ProductController;
 //    });
 //});
 
-Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
-Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
-Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
+//Route::resource('products', ProductController::class);
+
+//Route::delete('/produts/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+//Route::put('/products/{id}/update', [ProductController::class, 'update'])->name('products.update');
+//Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+//Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+//Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+//Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+//Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 
 Route::group([
