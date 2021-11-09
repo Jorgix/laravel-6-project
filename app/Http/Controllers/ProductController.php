@@ -6,6 +6,15 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+    public function __construct(Request $request){
+
+        $this->request = $request;
+//        $this->middleware('auth');
+        //$this->middleware('auth')->only('create');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +22,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $valor = 123;
+
+        return view('home', compact('valor'));
     }
 
     /**
@@ -23,7 +34,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return 'Form para criação de produtos';
     }
 
     /**
@@ -45,7 +56,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        return "Detalhes do produto: {$id}";
     }
 
     /**
