@@ -26,7 +26,7 @@ class ProductController extends Controller
         $valor2 = 1234;
         $produtos = ['Geladeira', 'Smartphone', 'TV', 'Eletrônicos'];
 
-        return view('admin.pages.products.index', compact('valor', 'valor2', 'valor3'));
+        return view('admin.pages.products.index', compact('valor', 'valor2', 'produtos'));
 
     }
 

@@ -9,6 +9,26 @@
     <h1>{!! $valor !!}</h1>
 
 
+    @if(isset($produtos))
+            @foreach($produtos as $produto)
+                <p class="@if ($loop->last) last @endif">{{ $produto }}</p>
+            @endforeach
+    @endif
+
+
+    <hr>
+
+        @forelse($produtos as $produto)
+
+            <p class="@if($loop->first) first @endif">{{$produto}}</p>
+
+        @empty
+
+            <p>Não existem produtos cadastrados</p>
+
+        @endforelse
+
+    <hr>
 
 
 
@@ -28,9 +48,6 @@
         {{$valor2}}
     @endisset
 
-    @empty($valor3)
-        <p>Variável vazia</p>
-    @endempty
 
     @auth()
         <p>Autenticado</p>
@@ -56,5 +73,18 @@
     @endswitch
 
 @endsection
+
+
+<style>
+    .last{
+        background: red;
+        padding: 5px;
+    }
+    .first{
+        background: red;
+        padding: 5px;
+    }
+</style>
+
 
 
