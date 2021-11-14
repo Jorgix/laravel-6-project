@@ -37,7 +37,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return 'Form para criação de produtos';
+        return view('admin.pages.products.create');
     }
 
     /**
@@ -48,7 +48,24 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'name' => 'required|min:3|max:25',
+            'email' => 'required',
+            'photo' => 'image'
+        ]);
+
+        dd('OK');
+
+
+       // dd($request->all());
+       // dd($request->only('email'));
+        //dd($request->has('name'));
+       // dd($request->except('_token'));
+        if ($request->file('photo')->isValid()){
+//            dd($request->file('photo')->store('products'));
+            dd($request->file('photo')->storeAs('products'));
+        }
     }
 
     /**
@@ -70,7 +87,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.pages.products.edit', compact('id'));
     }
 
     /**
@@ -82,7 +99,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd("atualizando produto: $id");
     }
 
     /**

@@ -1,13 +1,32 @@
 @extends('admin.layouts.app')
 
+
 @section('title', 'GrupoIkki')
 
 
 @section('content')
 
+
+    <a href="{{ route('products.create') }}">Cadastrar</a>
+
+    <hr>
+
     <h1>Listagem de produtos</h1>
     <h1>{!! $valor !!}</h1>
 
+    @component('admin.components.card')
+        @slot('title')
+            <h1>Título do card</h1>
+        @endslot
+
+        Um card de exemplo
+    @endcomponent
+
+
+
+    <hr>
+
+    @include('admin.includes.alerts', ['content' => 'Alerta de preços de produtos'])
 
     @if(isset($produtos))
             @foreach($produtos as $produto)
@@ -75,16 +94,25 @@
 @endsection
 
 
-<style>
-    .last{
-        background: red;
-        padding: 5px;
-    }
-    .first{
-        background: red;
-        padding: 5px;
-    }
-</style>
+@push('styles')
+    <style>
+        .last{
+            background: red;
+            padding: 5px;
+        }
+        .first{
+            background: red;
+            padding: 5px;
+        }
+    </style>
+@endpush
+
+@push('scripts')
+    <script>
+    document.body.style.background = '#efefef'
+    </script>
+@endpush
+
 
 
 
