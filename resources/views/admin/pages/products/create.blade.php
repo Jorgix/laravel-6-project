@@ -18,8 +18,8 @@
     @endif
     <form action="{{ route('products.store')}}" method="post" enctype="multipart/form-data">
         @csrf
-        <p><input type="text" name="name" placeholder="Digite seu nome"></p>
-        <p><input type="email" name="email" placeholder="Digite seu e-mail"></p>
+        <p><input type="text" name="name" placeholder="Digite seu nome" value="{{ old('name') }}"></p>
+        <p><input type="email" name="email" placeholder="Digite seu e-mail" value="{{ old('email') }}"></p>
         <p><input type="file" name="photo"></p>
         <button type="submit">Enviar</button>
     </form>

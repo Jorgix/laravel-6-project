@@ -13,7 +13,7 @@ class StoreUpdateProduct extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class StoreUpdateProduct extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:3|max:25',
+            'email' => 'required',
+            'photo' => [
+                'required', 'image'
+            ]
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'O campo é obrigatório',
+            'email.required' => 'Por favor, digite um e-mail válido',
+            'name.min' => 'O campo deve conter pelo menos 3 caracteres'
         ];
     }
 }
